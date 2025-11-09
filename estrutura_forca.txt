@@ -1,0 +1,13 @@
+forca/
+├── __init__.py
+├── main.py
+├── game/
+│   ├── __init__.py
+│   ├── core.py
+│   └── player.py
+├── utils/
+│   ├── __init__.py
+│   ├── file_manager.py
+│   └── display.py
+└── data/
+    └── palavras.txt
