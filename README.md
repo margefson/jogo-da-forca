@@ -1,205 +1,304 @@
 🎮 Jogo da Forca em Python
-Um jogo clássico da forca implementado em Python com interface de texto, sistema de pontuação e persistência de dados.
+Um jogo clássico da forca implementado em Python com interface colorida, múltiplas dificuldades, sistema de dicas e estatísticas avançadas.
 
 📋 Índice
-- Visão Geral
-- Funcionalidades
-- Estrutura do Projeto
-- Instalação e Execução
-- Como Jogar
-- Classes e Componentes
-- Arquivos de Dados
-- Personalização
-- Contribuindo
+Visão Geral
+ - Funcionalidades
+ - Estrutura do Projeto
+ - Instalação e Execução
+ - Como Jogar
+ - Classes e Componentes
+ - Arquivos de Dados
+ - Sistema de Dificuldades
+ - Personalização
+ - Desenvolvimento
+ - Licença
 
 🎯 Visão Geral
-Este projeto implementa o jogo da forca com foco em boas práticas de programação, organização de código e uso de conceitos avançados de Python. O jogo inclui um sistema completo de pontuação, estatísticas de jogador e persistência em arquivos.
+Este projeto implementa o jogo da forca com foco em boas práticas de programação, organização de código e uso de conceitos avançados de Python. O jogo inclui um sistema completo de pontuação dinâmica, múltiplas dificuldades, sistema de dicas inteligente e persistência robusta em arquivos.
 
 ✨ Funcionalidades
 🎮 Funcionalidades Principais
 ✅ Jogo da forca clássico com palavras relacionadas à programação
-✅ Sistema de pontuação com bônus por palavras maiores
-✅ Estatísticas detalhadas do jogador (vitórias, derrotas, taxa de sucesso)
-✅ Placar geral persistente entre sessões
-✅ Interface de texto com arte ASCII da forca
+✅ 4 níveis de dificuldade (Fácil, Normal, Difícil, Especialista)
+✅ Sistema de dicas inteligente (até 2 dicas por partida)
+✅ Pontuação dinâmica baseada em desempenho e dificuldade
+✅ Estatísticas detalhadas do jogador (médias, taxas, histórico)
+✅ Interface colorida com arte ASCII melhorada
+✅ Validação robusta de entradas do usuário
 
 💾 Persistência de Dados
-✅ Leitura de palavras de um arquivo de dicionário
-✅ Salvamento automático do placar em arquivo
-✅ Carregamento do histórico de pontuações
+✅ Leitura de palavras de arquivo de dicionário com validação
+✅ Salvamento automático do placar em formato JSON
+✅ Backup automático de arquivos de palavras
+✅ Carregamento do histórico de pontuações com timestamps
 
 🏗️ Arquitetura e Organização
 ✅ Organização em pacotes Python (game, utils, data)
 ✅ Separação de responsabilidades em classes especializadas
-✅ Código modular e fácil de manter
-✅ Tratamento de erros robusto
+✅ Código modular, documentado e fácil de manter
+✅ Tratamento de erros robusto em todas as operações
 
 🔧 Técnicas Avançadas
-✅ Sobrecarga de métodos mágicos (__str__, __repr__, __eq__, __lt__)
-✅ Uso de propriedades (@property)
-✅ Compreensões de lista
+✅ Sobrecarga de métodos mágicos (__str__, __repr__, __eq__, __lt__, __add__)
+✅ Uso de propriedades (@property) para cálculos dinâmicos
+✅ Enumerações para gerenciamento de dificuldades
+✅ Compreensões de lista e geradores
 ✅ Métodos de classe e estáticos
+✅ Tipagem de dados e documentação completa
 
 📁 Estrutura do Projeto
 text
-forca/
+forca_aprimorada/
 ├── 📄 main.py                 # Ponto de entrada do programa
 ├── 📦 game/                   # Pacote principal do jogo
 │   ├── __init__.py
-│   ├── 🎯 core.py            # Classe principal HangmanGame
-│   └── 👤 player.py          # Classe Player e sistema de pontuação
+│   ├── 🎯 core.py             # Classe principal HangmanGame
+│   ├── 👤 player.py           # Classe Player com estatísticas avançadas
+│   └── 🎯 difficulty.py       # Enumeração de dificuldades
 ├── 📦 utils/                  # Utilitários e helpers
 │   ├── __init__.py
-│   ├── 📁 file_manager.py    # Gerenciamento de arquivos
-│   └── 🖥️ display.py        # Exibição e interface
-└── 📁 data/                  # Dados do jogo
-    ├── 📝 palavras.txt       # Lista de palavras
-    └── 📊 placar.txt        # Placar (gerado automaticamente)
-
+│   ├── 📁 file_manager.py     # Gerenciamento robusto de arquivos
+│   └── 🖥️ display.py          # Sistema de exibição colorida
+└── 📁 data/                   # Dados do jogo
+    ├── 📝 palavras.txt        # Lista de palavras do dicionário
+    └── 📊 placar.json         # Placar em JSON (gerado automaticamente)
 🚀 Instalação e Execução
-- Pré-requisitos
-  - Python 3.6 ou superior
-  - Nenhuma dependência externa necessária
+Pré-requisitos
+Python 3.6 ou superior
+
+Terminal que suporte cores ANSI (Linux, macOS, Windows Terminal)
+
+Nenhuma dependência externa necessária
 
 📥 Como executar
-- Clone ou baixe o projeto
-  - bash
-    - git clone [url-do-repositorio]
-    - cd forca
-      
-- Execute o jogo
-  - bash
-    - python main.py
+Clone ou baixe o projeto
 
-- Ou execute diretamente (se tiver permissões de execução)
-  - bash
-    - ./main.py
-    
+bash
+git clone [url-do-repositorio]
+cd forca
+Execute o jogo
+
+bash
+python main.py
+Ou execute diretamente (se tiver permissões de execução):
+
+bash
+./main.py
 🎮 Como Jogar
-  🏁 Início do Jogo
-    - Ao iniciar, digite seu nome
-    - O jogo seleciona automaticamente uma palavra do dicionário
-    - Uma dica é mostrada: "palavra relacionada à programação"
+🏁 Início do Jogo
+Digite seu nome quando solicitado
+
+Escolha entre 4 níveis de dificuldade
+
+O jogo seleciona automaticamente uma palavra adequada à dificuldade
 
 🎯 Durante o Jogo
-  - Digite letras para tentar adivinhar a palavra
-  - Letras corretas são reveladas na posição correspondente
-  - Letras incorretas avançam o estado da forca
-  - Letras repetidas são ignoradas
+Digite letras para tentar adivinhar a palavra
+ - Letras corretas são reveladas na posição correspondente (verde)
+ - Letras incorretas avançam o estado da forca (vermelho)
+ - Use 'dica' ou 'd' para receber uma letra sugerida (roxo)
+ - Letras usadas são mostradas em amarelo
+
+Barra de progresso indica proximidade do game over
 
 💀 Fim do Jogo
-  - Vitória: Todas as letras são descobertas antes de 6 erros
-  - Derrota: Comete 6 erros (forca completa)
+🎉 Vitória: Todas as letras são descobertas dentro do limite de erros
+
+💀 Derrota: Número máximo de erros é atingido
 
 📊 Sistema de Pontuação
-  - Pontos base: 10 pontos por vitória
-  - Bônus: +1 ponto por letra na palavra
-  - Exemplo: "python" (6 letras) = 16 pontos
+Pontuação = (Letras na palavra × 10) - (Erros × 5) - (Dicas × 15) + (Bônus de Dificuldade × 20)
+Bônus de dificuldade: Fácil(20), Normal(40), Difícil(60), Especialista(80)
+
+Pontuação mínima garantida: 10 pontos
 
 🏗️ Classes e Componentes
-  🎯 HangmanGame (core.py)
-    Classe principal que orquestra todo o jogo.
+🎯 HangmanGame (core.py)
+Classe principal que orquestra todo o jogo.
 
 Métodos principais:
-  - play_round(): Executa uma rodada completa
-  - choose_word(): Seleciona palavra aleatória
-  - setup_player(): Configura jogador
+ - setup_game(): Configura jogador e dificuldade
+ - play_round(): Executa uma rodada completa
+ - choose_difficulty(): Seleção interativa de dificuldade
+ - get_hint(): Sistema inteligente de dicas
+ - calculate_score(): Cálculo dinâmico de pontuação
 
 👤 Player (player.py)
-  Representa um jogador com estatísticas.
-  Características:
-    - Rastreia vitórias, derrotas e pontuação
-    - Calcula taxa de vitórias automaticamente
-    - Ordenável por pontuação (maior primeiro)
+Representa um jogador com estatísticas avançadas.
+
+Características:
+ - Rastreia vitórias, derrotas, pontuação total
+ - Calcula taxas de vitória e médias automaticamente
+ - Métodos mágicos para comparação e combinação
+ - Timestamps de criação e última partida
+
+Métodos mágicos:
+ - __add__: Combina estatísticas de jogadores com mesmo nome
+ - __lt__: Ordenação por pontuação (maior primeiro)
+ - __eq__: Comparação por nome
+
+🎯 Difficulty (difficulty.py)
+Enumeração que define os níveis de dificuldade.
+
+Níveis disponíveis:
+ - EASY: 8 erros, palavras 3-6 letras
+ - NORMAL: 6 erros, palavras 5-8 letras
+ - HARD: 4 erros, palavras 7-10 letras
+ - EXPERT: 3 erros, palavras 9-15 letras
 
 📁 FileManager (file_manager.py)
-  Gerencia todas as operações de arquivo.
-  Funcionalidades:
-    - Leitura de palavras do dicionário
-    - Salvamento do placar
-    - Carregamento do histórico
+Gerencia todas as operações de arquivo com tratamento robusto.
 
-🖥️ Display (display.py)
-  Responsável por toda a exibição visual.
-  Componentes:
-    - Arte ASCII da forca em 7 estágios
-    - Formatação de palavras e letras usadas
-    - Exibição do placar
+Funcionalidades:
+ - Leitura validada de palavras do dicionário
+ - Salvamento do placar em JSON com timestamps
+ - Backup automático de arquivos
+ - Criação de diretórios quando necessário
+
+🖥️ Display (display.py**)
+Sistema avançado de exibição com cores ANSI.
+
+Componentes:
+ - Arte ASCII colorida da forca em 8 estágios
+ - Sistema de mensagens por tipo (erro, sucesso, aviso, dica)
+ - Barra de progresso colorida baseada em erros
+ - Formatação consistente de todos os elementos visuais
+
+Cores disponíveis:
+
+🟢 Verde: acertos e sucesso
+🔴 Vermelho: erros e perigo
+🟡 Amarelo: avisos e letras usadas
+🔵 Azul: informações
+🟣 Roxo: dicas
+⚪ Cinza: elementos neutros
 
 📊 Arquivos de Dados
-  📝 palavras.txt
-    Lista de palavras usadas no jogo (uma por linha).
-    Formato:
-      - text
-      - python
-      - programacao
-      - computador
-      - algoritmo
-      
-📊 placar.txt
-  Placar gerado automaticamente pelo jogo.
-  Formato:
-    - text
-    - João: 45
-    - Maria: 32
-    - Pedro: 28
-    
+📝 palavras.txt
+Lista de palavras usadas no jogo (uma por linha).
+
+Formato:
+ - txt
+    - programacao
+    - computador
+    - algoritmo
+    - variavel
+    - funcao
+    - classe
+    - # ... mais palavras
+
+Requisitos:
+ - Apenas letras (sem acentos)
+ - Uma palavra por linha
+ - Encoding UTF-8
+
+📊 placar.json
+Placar gerado automaticamente pelo jogo em formato JSON.
+
+Formato:
+json
+[
+  {
+    "player": "João",
+    "score": 145,
+    "timestamp": "2024-01-15T10:30:00",
+    "date": "15/01/2024 10:30"
+  }
+]
+
+🎯 Sistema de Dificuldades
+Dificuldade	Erros	Tamanho das Palavras	Bônus
+
+ - Fácil	8	3-6 letras	+20
+ - Normal	6	5-8 letras	+40
+ - Difícil	4	7-10 letras	+60
+ - Especialista	3	9-15 letras	+80
+ - 
 🎨 Personalização
-  🔤 Adicionar Novas Palavras
-  Edite o arquivo data/palavras.txt:
-    - txt
-    - sua_palavra_aqui
-    - outra_palavra
-    - mais_uma
-    
+🔤 Adicionar Novas Palavras
+Edite o arquivo data/palavras.txt:
+
+txt
+ - sua_palavra_aqui
+ - outra_palavra
+ - mais_uma
+
 ⚙️ Modificar Dificuldade
-  No arquivo game/core.py, altere:
-  python
-    self.max_errors = 6  # Mude para mais (fácil) ou menos (difícil)
-    
-🎨 Personalizar Arte da Forca
-  Edite os estágios em utils/display.py na constante STAGES.
+Edite os valores em game/difficulty.py:
+
+python
+@property
+def max_errors(self):
+    return {
+        Difficulty.EASY: 8,      # Altere estes valores
+        Difficulty.NORMAL: 6,
+        Difficulty.HARD: 4,
+        Difficulty.EXPERT: 3
+    }[self]
+
+🎨 Personalizar Cores
+Modifique a classe Colors em utils/display.py:
+
+python
+class Colors:
+    MINHA_COR = '\033[94m'  # Código ANSI para azul claro
+    # ... outras cores
+
+💡 Modificar Sistema de Dicas
+Ajuste em game/core.py:
+
+python
+def __init__(self):
+    self.max_hints = 3  # Aumente o número de dicas
+    # ...
 
 🔧 Desenvolvimento
-  📝 Adicionando Novas Funcionalidades
-    - Novas classes: Adicione no pacote apropriado
-    - Novos utilitários: Coloque em utils/
-    - Novos dados: Adicione em data/
+📝 Adicionando Novas Funcionalidades
+ - Novas classes: Adicione no pacote game/
+ - Novos utilitários: Coloque em utils/
+ - Novos dados: Adicione em data/
 
 🧪 Testando Modificações
-  bash
-    # Execute após modificações
-    python main.py
+bash
+# Execute após modificações
+python main.py
 
-    # Para debugging, adicione:
-    import pdb; pdb.set_trace()
-  🤝 Contribuindo
-  📋 Padrões de Código
-    - Use nomes descritivos em português
-    - Documente classes e métodos com docstrings
-    - Mantenha a organização em pacotes
+# Para debugging específico
+import pdb; pdb.set_trace()  # Adicione onde necessário
 
 🐛 Reportando Problemas
-  - Descreva o comportamento esperado vs atual
-  - Inclua mensagens de erro completas
-  - Especifique seu ambiente (SO, versão Python)
+Ao encontrar problemas:
+ - Descreva o comportamento esperado vs atual
+ - Inclua mensagens de erro completas
+ - Especifique seu ambiente (SO, versão Python, terminal)
+ - Mencione a dificuldade selecionada e palavra (se aplicável)
 
-💡 Sugestões de Melhoria
-  - Interface gráfica com Tkinter
-  - Modo multiplayer
-  - Categorias de palavras
-  - Dificuldades variáveis
-  - Sistema de dicas
+💡 Sugestões de Melhorias Futuras
+Modo multiplayer competitivo
+ - Sistema de conquistas e badges
+ - Timer por rodada
+
+Modo desafio com palavras específicas
+ - Integração com API de dicionário online
+ - Sons e efeitos sonoros
+
+Modo tutorial para iniciantes
 
 📄 Licença
-  Este projeto é para fins educacionais. Sinta-se à vontade para usar e modificar.
+Este projeto é para fins educacionais. Desenvolvido como exemplo de aplicação Python completa demonstrando:
 
-👨‍💻 Autor
-  Desenvolvido como exemplo de aplicação Python completa demonstrando:
-    - Organização de código em pacotes
-    - Princípios de OOP
-    - Manipulação de arquivos
-    - Boas práticas de programação
+✅ Organização de código em pacotes
+✅ Princípios de OOP avançada
+✅ Manipulação robusta de arquivos
+✅ Sistemas de interface de usuário
+✅ Tratamento completo de erros
+✅ Boas práticas de programação
+
+Sinta-se à vontade para usar, modificar e distribuir.
+
+👨‍💻 Team: Margefson, Thyago e Amon
+Desenvolvido como trabalho prático de programação em Python.
 
 Divirta-se jogando! 🎮✨
 
