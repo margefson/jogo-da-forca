@@ -146,10 +146,10 @@ class HangmanGame:
                 break
             
             # Obtém ação do jogador
-            action = Display.get_input("\nDigite uma letra ou 'dica' para ajuda: ").lower().strip()
+            action = Display.get_input("\nDigite uma letra, 'dica' ou '?' para ajuda: ").lower().strip()
             
             try:
-                if action == 'dica' or action == 'd':
+                if action == 'dica' or action == '?':
                     self.get_hint(word, correct_letters, used_letters)
                     continue
                 
