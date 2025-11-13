@@ -1,3 +1,9 @@
+👨‍💻 Team: 
+ - Margefson Machado Barros: margefson.barros@icomp.ufam.edu.br;
+ - Thyago Alex Cardoso Sampaio: thyago.sampaio@icomp.ufam.edu.br;
+ - Amon Menezes Negreiros: amon.negreiros@icomp.ufam.edu.br;
+Desenvolvido como trabalho prático de programação em Python.
+
 🎮 Jogo da Forca em Python
 Um jogo clássico da forca implementado em Python com interface colorida, múltiplas dificuldades, sistema de dicas e estatísticas avançadas.
 
@@ -296,9 +302,6 @@ Este projeto é para fins educacionais. Desenvolvido como exemplo de aplicação
 ✅ Boas práticas de programação
 
 Sinta-se à vontade para usar, modificar e distribuir.
-
-👨‍💻 Team: Margefson, Thyago e Amon
-Desenvolvido como trabalho prático de programação em Python.
 
 Divirta-se jogando! 🎮✨
 
